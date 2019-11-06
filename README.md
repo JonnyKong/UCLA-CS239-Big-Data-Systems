@@ -3,11 +3,9 @@
 ### Getting Started
 
 1. Build [Apache Storm](https://github.com/apache/storm) following following [instructions](https://github.com/apache/storm/blob/master/DEVELOPER.md). You can skip the tests to save time:
-
 ```bash
 $ mvn install -DskipTests=true
 ```
-
 2. Install and Start ZooKeeper ([instructions](https://www.tutorialspoint.com/zookeeper/zookeeper_installation.htm)):
 
 	```bash
