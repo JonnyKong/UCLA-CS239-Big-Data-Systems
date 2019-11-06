@@ -17,8 +17,8 @@ $ zkServer start
 3. Create a Storm Distribution
 
 ```bash
-$ brew install pgp && gpg --gen-key		# If you haven't already, create PGP key-pair
-$ export GPG_TTY=$(tty)								# Make gpg happy
+$ brew install pgp && gpg --gen-key   # If you haven't already, create PGP key-pair
+$ export GPG_TTY=$(tty)               # Make gpg happy
 # Create Storm Distribution (Storm can only execute in release version)
 $ cd <STORM_SRC>/storm-dist/binary && mvn package
 ```
@@ -29,8 +29,8 @@ $ cd <STORM_SRC>/storm-dist/binary && mvn package
 $ cd <STORM_SRC>/storm-dist/binary/final-package/target
 $ tar -xvf apache-storm-2.2.0-SNAPSHOT.tar.gz && cd apache-storm-2.2.0-SNAPSHOT
 # Configure and run
-$ vim conf/storm.yaml				# Update config (see instructions)
-$ ./bin/storm nimbus				# Start the Nimbus
-$ ./bin/storm supervisor		# Start the Supervisor
-$ ./bin/storm ui						# Start the UI (localhost:5000)
+$ vim conf/storm.yaml       # Update config (see instructions)
+$ ./bin/storm nimbus        # Start the Nimbus
+$ ./bin/storm supervisor    # Start the Supervisor
+$ ./bin/storm ui            # Start the UI (localhost:5000)
 ```
