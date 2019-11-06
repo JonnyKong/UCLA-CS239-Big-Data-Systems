@@ -8,11 +8,10 @@ $ mvn install -DskipTests=true
 ```
 2. Install and Start ZooKeeper ([instructions](https://www.tutorialspoint.com/zookeeper/zookeeper_installation.htm)):
 
-	```bash
-   $ brew install zookeeper
-   $ vim /usr/local/etc/zookeeper/zoo.cng
-   $ zkServer start
-  ```
+```bash
+$ brew install zookeeper
+$ vim /usr/local/etc/zookeeper/zoo.cng
+$ zkServer start
+```
 
 3. Run example topologies defined in [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter).
-
