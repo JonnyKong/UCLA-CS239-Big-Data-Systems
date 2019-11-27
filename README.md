@@ -8,7 +8,7 @@
 ```bash
 $ mvn install -DskipTests=true
 ```
-2. Install and Start ZooKeeper ([instructions](https://www.tutorialspoint.com/zookeeper/zookeeper_installation.htm)):
+2. (Requred for remote cluster) Install and Start ZooKeeper ([instructions](https://www.tutorialspoint.com/zookeeper/zookeeper_installation.htm)):
 
 ```bash
 $ brew install zookeeper
@@ -16,7 +16,7 @@ $ vim /usr/local/etc/zookeeper/zoo.cfg
 $ zkServer start
 ```
 
-3. Create and run a Storm Distribution
+3. (Requred for remote cluster) Create and run a Storm Distribution
 
 ```bash
 $ brew install pgp && gpg --gen-key   # If you haven't already, create PGP key-pair
@@ -27,7 +27,7 @@ $ cd <STORM_SRC>/storm-dist/binary/final-package/target
 $ tar -xzvf apache-storm-2.2.0-SNAPSHOT.tar.gz && cd apache-storm-2.2.0-SNAPSHOT
 ```
 
-4. Run example topologies defined in [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter).
+4. (Optional) Run example topologies defined in [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter).
 
 ```bash
 # Update config (see instructions)
@@ -41,6 +41,13 @@ $ <STORM_SRC>/storm-dist/binary/final-package/target/apache-storm-2.2.0-SNAPSHOT
 ```
 
 * [Local Mode](https://github.com/apache/storm/blob/master/docs/Local-mode.md)
+
+5. Run example topology in this repository
+
+```bash
+$ mvn install
+$ mvn exec:java
+```
 
 ##### Install CouchDB: 
 
