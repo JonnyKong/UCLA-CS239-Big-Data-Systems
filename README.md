@@ -32,6 +32,8 @@ $ tar -xzvf apache-storm-2.2.0-SNAPSHOT.tar.gz && cd apache-storm-2.2.0-SNAPSHOT
 ```bash
 # Update config (see instructions)
 $ vim conf/storm.yaml
+# Build examples
+$ cd <STORM_SRC>/examples/storm-starter && mvn package
 # Submit example topologies remotely
 $ <STORM_SRC>/storm-dist/binary/final-package/target/apache-storm-2.2.0-SNAPSHOT/bin/storm jar examples/storm-starter/target/storm-starter-2.2.0-SNAPSHOT.jarorg.apache.storm.starter.ExclamationTopology
 # Submit example topologies locally
