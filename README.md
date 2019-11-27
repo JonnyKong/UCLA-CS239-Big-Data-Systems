@@ -27,16 +27,18 @@ $ cd <STORM_SRC>/storm-dist/binary/final-package/target
 $ tar -xzvf apache-storm-2.2.0-SNAPSHOT.tar.gz && cd apache-storm-2.2.0-SNAPSHOT
 ```
 
-4. Run example topologies defined in [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter). [(Instructions)](https://www.tutorialspoint.com/apache_storm/apache_storm_installation.htm)
+4. Run example topologies defined in [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter).
 
 ```bash
-# Configure and run
-$ vim conf/storm.yaml       # Update config (see instructions)
-$ ./bin/storm nimbus        # Start the Nimbus
-$ ./bin/storm supervisor    # Start the Supervisor
-$ ./bin/storm ui            # Start the UI (localhost:5000)
-# Then, submit topologies either in local or remote mode (see instructions)
+# Update config (see instructions)
+$ vim conf/storm.yaml
+# Submit example topologies remotely
+$ <STORM_SRC>/storm-dist/binary/final-package/target/apache-storm-2.2.0-SNAPSHOT/bin/storm jar examples/storm-starter/target/storm-starter-2.2.0-SNAPSHOT.jarorg.apache.storm.starter.ExclamationTopology
+# Submit example topologies locally
+$ <STORM_SRC>/storm-dist/binary/final-package/target/apache-storm-2.2.0-SNAPSHOT/bin/storm jar examples/storm-starter/target/storm-starter-2.2.0-SNAPSHOT.jarorg.apache.storm.starter.ExclamationTopology -local
 ```
+
+* [Local Mode](https://github.com/apache/storm/blob/master/docs/Local-mode.md)
 
 ##### Install CouchDB: 
 
