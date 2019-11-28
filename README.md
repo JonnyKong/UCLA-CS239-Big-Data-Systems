@@ -52,3 +52,12 @@ $ mvn exec:java
 ##### Install CouchDB: 
 
 1. [GUI version](https://couchdb.apache.org/#download)
+
+```bash
+# Lookup
+$ curl http://127.0.0.1:5984/baseball/00a271787f89c0ef2e10e88a0c0001f4
+# Insert
+$ curl -H 'Content-Type: application/json' \
+    -X POST http://127.0.0.1:5984/baseball \
+    -d '{"key": "value"}'
+```
