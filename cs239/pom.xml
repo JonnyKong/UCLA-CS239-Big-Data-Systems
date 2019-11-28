@@ -30,6 +30,16 @@
       <version>2.2.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>13</version>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -79,7 +89,16 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.2.1</version>
           <configuration>
-              <mainClass>edu.ucla.cs.jonnykong.cs239.WordCountTopology</mainClass>
+              <!-- <mainClass>edu.ucla.cs.jonnykong.cs239.WordCountTopology</mainClass> -->
+              <mainClass>edu.ucla.cs.jonnykong.cs239.CouchDbClient</mainClass>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-maven-plugin</artifactId>
+          <version>0.0.3</version>
+          <configuration>
+            <mainClass>HelloFX</mainClass>
           </configuration>
         </plugin>
       </plugins>
