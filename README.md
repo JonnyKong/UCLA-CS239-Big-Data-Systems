@@ -53,11 +53,22 @@ $ mvn exec:java
 
 1. [GUI version](https://couchdb.apache.org/#download)
 
+##### Useful CouchDB Commands:
 ```bash
-# Lookup
+# 1. Create database baseball
+$ curl -X PUT http://127.0.0.1:5984/baseball
+# 2. Delete database baseball
+$ curl -X DELETE http://127.0.0.1:5984/baseball
+# 3. Lookup
 $ curl http://127.0.0.1:5984/baseball/00a271787f89c0ef2e10e88a0c0001f4
-# Insert
+# 4. Insert
 $ curl -H 'Content-Type: application/json' \
     -X POST http://127.0.0.1:5984/baseball \
     -d '{"key": "value"}'
+# 5. Update
+$ curl -H 'Content-Type: application/json' \
+    -X PUT http://127.0.0.1:5984/baseball/00a271787f89c0ef2e10e88a0c0001f4
+    -d '{"_rev": "1-59414e77c768bc202142ac82c2f129de", "key": "value"}'
+# 6. Return all docs in a database
+$ curl http://127.0.0.1:5984/baseball/_all_docs
 ```
