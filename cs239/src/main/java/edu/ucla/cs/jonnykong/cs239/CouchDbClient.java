@@ -11,6 +11,7 @@ import java.net.URI;
  * Basic client for CouchDB.
  * TODO: make ops async
  * TODO: escape string
+ * TODO: destructor to close connection?
  */
 public class CouchDbClient {
     

@@ -24,6 +24,7 @@ public class WordReaderSpout implements IRichSpout {
         "Hello World",
         "World",
         "Hello"
+        // "{\"_id\":\"76a88b96a415c1e81df63339b301ead7\",\"_rev\":\"5-3c578d5f72aa835550037e324a9f99de\",\"key\":\"value_new\"}"
     };
     boolean isCompleted;
     String fileName;

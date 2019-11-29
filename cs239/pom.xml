@@ -89,8 +89,8 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.2.1</version>
           <configuration>
-              <!-- <mainClass>edu.ucla.cs.jonnykong.cs239.WordCountTopology</mainClass> -->
-              <mainClass>edu.ucla.cs.jonnykong.cs239.CouchDbClient</mainClass>
+              <mainClass>edu.ucla.cs.jonnykong.cs239.WordCountTopology</mainClass>
+              <!-- <mainClass>edu.ucla.cs.jonnykong.cs239.CouchDbClient</mainClass> -->
           </configuration>
         </plugin>
         <plugin>
