@@ -1,10 +1,11 @@
 package edu.ucla.cs.jonnykong.cs239;    // TODO: move to storm package
 
+import org.json.JSONObject;
+
+import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.text.ParseException;
-import java.net.URI;
 
 
 /**
@@ -98,6 +99,26 @@ public class CouchDbClient {
             HttpResponse<String> response = 
                 this.http_client.send(request, HttpResponse.BodyHandlers.ofString());
             return response.body();
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public JSONObject lookupWithFields(JSONObject filter) {
+        // POST /{db}/_find
+        String uri_str = this.host_addr + "/" + this.db_name + "/_find";
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .POST(HttpRequest.BodyPublishers.ofString(filter.toString()))
+                    .headers("Accept", "application/json", "Content-Type", "application/json")
+                    .uri(new URI(uri_str))
+                    .build();
+
+            HttpResponse<String> response =
+                    this.http_client.send(request, HttpResponse.BodyHandlers.ofString());
+            return new JSONObject(response.body());
         } catch (Exception e) {
             System.out.println(e);
             return null;

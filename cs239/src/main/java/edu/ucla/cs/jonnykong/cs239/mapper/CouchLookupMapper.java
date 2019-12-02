@@ -2,7 +2,7 @@ package edu.ucla.cs.jonnykong.cs239.mapper;
 
 import org.apache.storm.tuple.ITuple;
 import org.apache.storm.tuple.Values;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,19 +16,17 @@ public class CouchLookupMapper implements Serializable {
         this.fields = fields;
     }
 
-    public List<Values> toTuple(ITuple input, JSONObject doc) {
+    public Values toTuple(ITuple input, JSONObject doc) {
         Values values = new Values();
 
         for (String field: fields) {
             if (input.contains(field)) {
                 values.add(input.getValueByField(field));
             } else {
-                values.add(doc.getString(field));
+                values.add(doc.get(field));
             }
         }
 
-        List<Values> result = new ArrayList<>();
-        result.add(values);
-        return result;
+        return values;
     }
 }
