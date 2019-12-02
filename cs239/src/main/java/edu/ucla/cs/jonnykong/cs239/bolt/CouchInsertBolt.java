@@ -26,7 +26,7 @@ public class CouchInsertBolt implements IRichBolt {
     private final String db_name;
     private final CouchInsertMapper mapper;
 
-    public CouchUpdateBolt(String host_addr, String db_name, CouchInsertMapper mapper) {
+    public CouchInsertBolt(String host_addr, String db_name, CouchInsertMapper mapper) {
         this.host_addr = host_addr;
         this.db_name = db_name;
         this.mapper = mapper;
