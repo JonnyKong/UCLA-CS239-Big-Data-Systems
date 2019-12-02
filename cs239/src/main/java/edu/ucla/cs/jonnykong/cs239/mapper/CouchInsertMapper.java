@@ -25,19 +25,6 @@ public class CouchInsertMapper implements Serializable {
      * @return String, whose value is a JSON string.
      */
     String toDocument(ITuple tuple) {
-        // Make sure the tuple have required fields "id" and "_rev"
-        String _id, _rev;
-        StringBuffer docBuffer = new StringBuffer("{");
-        List<String> fields = tuple.getFields().toList();
-    
-        for (String field: fields){
-            docBuffer.append("\""+field+"\"");
-            docBuffer.append(": ");
-            docBuffer.append("\""+tuple.getStringByField(field)+"\"");
-            docBuffer.append(",");
-        }
-        docBuffer.deleteCharAt(docBuffer.length()-1);
-        docBuffer.append("}");
-        return docBuffer.toString();
+        return tuple.getString(0);
     }
 }
