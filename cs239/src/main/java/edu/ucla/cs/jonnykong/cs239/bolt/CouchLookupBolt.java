@@ -41,6 +41,14 @@ public class CouchLookupBolt implements IRichBolt {
 
     @Override
     public void execute(Tuple tuple) {
+        if(tuple.size() == 1) {
+            String doc = couchDbClient.lookup(tuple.getString(0));
+            Values values = new Values();
+            values.add(doc);
+            this.collector.emit(tuple, values);
+            return;
+        }
+
         try {
             Map<String, String> map = new HashMap<>();
             for(int i = 0; i < tuple.size(); i += 2) {
