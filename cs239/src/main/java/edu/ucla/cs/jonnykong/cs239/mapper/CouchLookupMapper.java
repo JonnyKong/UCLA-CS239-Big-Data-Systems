@@ -2,11 +2,9 @@ package edu.ucla.cs.jonnykong.cs239.mapper;
 
 import org.apache.storm.tuple.ITuple;
 import org.apache.storm.tuple.Values;
-import org.json.simple.JSONObject;
+import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CouchLookupMapper implements Serializable {
 
