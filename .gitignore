@@ -30,3 +30,7 @@ cs239/target/*
 .project
 .factorypath
 .classpath
+
+# idea config file
+*.iml
+**/*.iml
