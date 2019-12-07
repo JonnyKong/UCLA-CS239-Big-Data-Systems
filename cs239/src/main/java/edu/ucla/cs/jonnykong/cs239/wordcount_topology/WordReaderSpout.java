@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239;
+package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
 
 import java.util.Map;
 import org.apache.storm.spout.SpoutOutputCollector;

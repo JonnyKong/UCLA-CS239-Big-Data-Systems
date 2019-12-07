@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239;    // TODO: move to storm package
+package edu.ucla.cs.jonnykong.cs239.mapper;    // TODO: move to storm package
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,7 +24,7 @@ public class CouchInsertMapper implements Serializable {
      * @param tuple Input tuple
      * @return String, whose value is a JSON string.
      */
-    String toDocument(ITuple tuple) {
-        return tuple.getString(0);
+    public String toDocument(ITuple tuple) {
+        return String.format("{ \"Content\": \"%s\" }", tuple.getString(0));
     }
 }

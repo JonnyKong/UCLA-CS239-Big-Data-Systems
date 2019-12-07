@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239; // TODO: move to storm package
+package edu.ucla.cs.jonnykong.cs239.bolt; // TODO: move to storm package
 
 import java.util.Map;
 import java.util.function.Function;
@@ -12,7 +12,7 @@ import org.apache.storm.topology.IRichBolt;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 
 import edu.ucla.cs.jonnykong.cs239.CouchDbClient;
-import edu.ucla.cs.jonnykong.cs239.CouchInsertMapper;
+import edu.ucla.cs.jonnykong.cs239.mapper.CouchInsertMapper;
 import edu.ucla.cs.jonnykong.cs239.CouchUtils;
 
 

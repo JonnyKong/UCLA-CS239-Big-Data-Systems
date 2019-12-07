@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239;    // TODO: move to storm package
+package edu.ucla.cs.jonnykong.cs239.mapper;    // TODO: move to storm package
 
 import java.io.Serializable;
 import javafx.util.Pair;
@@ -25,7 +25,7 @@ public class CouchUpdateMapper implements Serializable {
      * @return <docid, value> pair, where value is a JSON string containing the "_rev" field. If a
      *  tuple doesn't have "_id" or "_rev" fields, return null.
      */
-    Pair<String, String> toUpdateTuple(ITuple tuple) {
+    public Pair<String, String> toUpdateTuple(ITuple tuple) {
         // Make sure the tuple have required fields "id" and "_rev"
         String _id, _rev;
         String value = tuple.getString(0);
