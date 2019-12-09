@@ -6,7 +6,7 @@ import org.apache.storm.trident.operation.TridentCollector;
 import org.apache.storm.trident.state.BaseStateUpdater;
 import org.apache.storm.trident.tuple.TridentTuple;
 
-public class MongoStateUpdater extends BaseStateUpdater<MongoState>  {
+public class CouchStateUpdater extends BaseStateUpdater<CouchState>  {
 
     @Override
     public void updateState(CouchState state, List<TridentTuple> tuples,
