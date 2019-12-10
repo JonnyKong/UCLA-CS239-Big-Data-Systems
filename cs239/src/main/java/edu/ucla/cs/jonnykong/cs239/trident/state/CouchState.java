@@ -6,6 +6,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import edu.ucla.cs.jonnykong.cs239.CouchDbClient;
+import edu.ucla.cs.jonnykong.cs239.QueryFilterCreator;
+import edu.ucla.cs.jonnykong.cs239.mapper.CouchInsertMapper;
+import edu.ucla.cs.jonnykong.cs239.mapper.CouchLookupMapper;
 import org.apache.commons.lang.Validate;
 
 import org.apache.storm.topology.FailedException;
@@ -46,7 +50,7 @@ public class CouchState implements State {
             return this;
         }
 
-        public Options withMapper(CouchMapper mapper) {
+        public Options withMapper(CouchInsertMapper mapper) {
             this.mapper = mapper;
             return this;
         }
@@ -66,7 +70,7 @@ public class CouchState implements State {
         Validate.notEmpty(options.url, "url can not be blank or null");
         Validate.notEmpty(options.collectionName, "collectionName can not be blank or null");
 
-        this.couchClient = new Couch(options.url, options.collectionName);
+        this.couchClient = new CouchDbClient(options.url, options.collectionName);
     }
 
     @Override
