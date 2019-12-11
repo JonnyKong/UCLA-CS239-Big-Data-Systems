@@ -46,7 +46,7 @@ public class CouchLookupBolt implements IRichBolt {
             String doc = couchDbClient.lookup(tuple.getString(0));
             Values values = new Values();
             values.add(doc);
-            this.collector.emit(tuple, values);
+            this.collector.ack(tuple);
             System.out.println(doc);
             return;
         }
@@ -65,7 +65,7 @@ public class CouchLookupBolt implements IRichBolt {
             }
 
             for (Values values: valuesList) {
-                this.collector.emit(tuple, values);
+                System.out.println(values.toString());
             }
             this.collector.ack(tuple);
         } catch (Exception e) {
