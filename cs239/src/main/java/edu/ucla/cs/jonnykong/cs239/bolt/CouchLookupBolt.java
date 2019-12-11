@@ -61,7 +61,9 @@ public class CouchLookupBolt implements IRichBolt {
 
             List<Values> valuesList = new ArrayList<>();
             for(int i = 0; i < docs.length(); i++) {
-                valuesList.add(couchLookupMapper.toTuple(tuple, docs.getJSONObject(i)));
+                JSONObject jsonObject = docs.getJSONObject(i);
+                System.out.println("***" + jsonObject.toString());
+                valuesList.add(couchLookupMapper.toTuple(tuple, jsonObject));
             }
 
             for (Values values: valuesList) {

@@ -109,15 +109,25 @@ public class CouchDbClient {
         // POST /{db}/_find
         String uri_str = this.host_addr + "/" + this.db_name + "/_find";
 
+        System.out.println("filter: " + filter.toString());
+
+        StringBuilder data = new StringBuilder("{");
+        for(String key: filter.keySet()) {
+            data.append(key).append(": ").append(filter.get(key)).append(",");
+        }
+        data.deleteCharAt(data.length() - 1);
+        data.append("}");
+        System.out.println(data.toString());
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .POST(HttpRequest.BodyPublishers.ofString(filter.toString()))
+                    .POST(HttpRequest.BodyPublishers.ofString(data.toString()))
                     .headers("Accept", "application/json", "Content-Type", "application/json")
                     .uri(new URI(uri_str))
                     .build();
 
             HttpResponse<String> response =
                     this.http_client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("response: " + response.body());
             return new JSONObject(response.body());
         } catch (Exception e) {
             System.out.println(e);
