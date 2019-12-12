@@ -32,6 +32,7 @@ public class CouchUpdateMapper implements Serializable {
         try {
             _id = CouchUtils.getAttr(value, "_id");
             _rev = CouchUtils.getAttr(value, "_rev");
+            value = CouchUtils.delAttr(value, "_id");
         } catch (Exception e) {
             System.out.println(e);
             return null;

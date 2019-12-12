@@ -30,11 +30,65 @@ public final class CouchUtils {
      * @return The updated JSON string.
      * @throws org.json.simple.parser.ParseException
      */
-    public static String setAttr(String json_str, String attr_key, String attr_value) 
+    public static String setAttr(String json_str, String attr_key, String attr_value)
             throws org.json.simple.parser.ParseException {
         Object obj = new JSONParser().parse(json_str);
         JSONObject jo = (JSONObject)obj;
         jo.put(attr_key, attr_value);
         return jo.toJSONString();
     }
+
+    /**
+     * Delete the specified attribute of a JSON string.
+     * @param json_str The value ASCII string in JSON format.
+     * @param attr The specified attribute.
+     * @return The updated JSON string.
+     * @throws org.json.simple.parser.ParseException
+     */
+    public static String delAttr(String json_str, String attr_key)
+            throws org.json.simple.parser.ParseException {
+        Object obj = new JSONParser().parse(json_str);
+        JSONObject jo = (JSONObject)obj;
+        jo.remove(attr_key);
+        return jo.toJSONString();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
