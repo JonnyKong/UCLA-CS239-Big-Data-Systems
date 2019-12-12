@@ -34,3 +34,6 @@ cs239/target/*
 # idea config file
 *.iml
 **/*.iml
+
+.DS_Store
+**/.DS_Store
