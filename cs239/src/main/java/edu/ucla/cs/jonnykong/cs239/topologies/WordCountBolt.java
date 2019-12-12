@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
 import java.util.HashMap;
 import java.util.Map;

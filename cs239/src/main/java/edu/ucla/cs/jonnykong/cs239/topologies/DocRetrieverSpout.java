@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239.doc_retriever_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;

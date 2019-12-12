@@ -1,15 +1,11 @@
-package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
-import edu.ucla.cs.jonnykong.cs239.bolt.CouchInsertBolt;
-import edu.ucla.cs.jonnykong.cs239.bolt.CouchUpdateBolt;
 import edu.ucla.cs.jonnykong.cs239.mapper.CouchInsertMapper;
-import edu.ucla.cs.jonnykong.cs239.mapper.CouchUpdateMapper;
 import edu.ucla.cs.jonnykong.cs239.trident.state.CouchState;
 import edu.ucla.cs.jonnykong.cs239.trident.state.CouchStateFactory;
 import edu.ucla.cs.jonnykong.cs239.trident.state.CouchStateUpdater;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
-import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.trident.Stream;
 import org.apache.storm.trident.TridentTopology;
 import org.apache.storm.trident.state.StateFactory;
@@ -26,7 +22,7 @@ public class TridentStateTopology {
                 .withCollectionName(collectionName)
                 .withMapper(mapper);
 
-        WordReaderSpout spout = new WordReaderSpout();
+        DocInsertSpout spout = new DocInsertSpout();
         TridentTopology topology = new TridentTopology();
         Stream stream = topology.newStream("spout1", spout);
 

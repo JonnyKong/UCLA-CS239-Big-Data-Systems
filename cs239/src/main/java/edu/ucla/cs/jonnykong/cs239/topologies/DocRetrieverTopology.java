@@ -1,8 +1,9 @@
-package edu.ucla.cs.jonnykong.cs239.doc_retriever_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
 import edu.ucla.cs.jonnykong.cs239.SimpleQueryFilterCreator;
 import edu.ucla.cs.jonnykong.cs239.bolt.CouchLookupBolt;
 import edu.ucla.cs.jonnykong.cs239.mapper.CouchLookupMapper;
+import edu.ucla.cs.jonnykong.cs239.topologies.DocRetrieverSpout;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;

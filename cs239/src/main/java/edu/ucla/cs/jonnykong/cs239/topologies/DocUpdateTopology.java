@@ -1,25 +1,21 @@
-package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
-import edu.ucla.cs.jonnykong.cs239.bolt.CouchInsertBolt;
 import edu.ucla.cs.jonnykong.cs239.bolt.CouchUpdateBolt;
-import edu.ucla.cs.jonnykong.cs239.mapper.CouchInsertMapper;
 import edu.ucla.cs.jonnykong.cs239.mapper.CouchUpdateMapper;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
 
 
-public class WordCountTopology {
+public class DocUpdateTopology {
     public static void main(String[] args) throws Exception {
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("word-reader", new WordReaderSpout());
+        builder.setSpout("word-reader", new DocUpdateSpout());
         // builder.setBolt("word-counter", new WordCountBolt(), 1).shuffleGrouping("word-reader");
         
         CouchUpdateBolt couch_update_bolt 
             = new CouchUpdateBolt("http://127.0.0.1:5984", "baseball", new CouchUpdateMapper());
-//        builder.setBolt("couch-updater", couch_update_bolt).shuffleGrouping("word-reader");
-        CouchInsertBolt couchInsertBolt = new CouchInsertBolt("http://127.0.0.1:5984", "baseball", new CouchInsertMapper());
-        builder.setBolt("couch-inserter", couchInsertBolt).shuffleGrouping("word-reader");
+        builder.setBolt("couch-updater", couch_update_bolt).shuffleGrouping("word-reader");
 
         Config conf = new Config();
         conf.setDebug(true);

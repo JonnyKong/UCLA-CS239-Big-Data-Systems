@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
 import java.util.Map;
 import org.apache.storm.spout.SpoutOutputCollector;
@@ -9,7 +9,7 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 
 
-public class WordReaderSpout implements IRichSpout {
+public class DocInsertSpout implements IRichSpout {
     /**
      * 
      */

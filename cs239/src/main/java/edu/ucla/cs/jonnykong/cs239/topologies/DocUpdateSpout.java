@@ -1,4 +1,4 @@
-package edu.ucla.cs.jonnykong.cs239.wordcount_topology;
+package edu.ucla.cs.jonnykong.cs239.topologies;
 
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
@@ -10,14 +10,14 @@ import org.apache.storm.tuple.Values;
 import java.util.Map;
 
 
-public class JsonStringSpout implements IRichSpout {
+public class DocUpdateSpout implements IRichSpout {
     /**
      * 
      */
     private static final long serialVersionUID = 441966625018520917L;
     private SpoutOutputCollector collector;
     private String[] sentences = {
-            "{\"_id\":\"76a88b96a415c1e81df63339b301ead7\",\"_rev\":\"5-3c578d5f72aa835550037e324a9f99de\",\"key\":\"new_value\"}"
+            "{\"_id\":\"0aca5f3e1ce7e1fd1bda272a23000b06\",\"_rev\":\"2-c8e2c543280132481424e37aa29df77b\",\"key\":\"new_value\"}"
     };
     boolean isCompleted;
     String fileName;
