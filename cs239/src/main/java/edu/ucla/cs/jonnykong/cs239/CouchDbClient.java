@@ -19,11 +19,10 @@ public class CouchDbClient {
     private String host_addr;
     private String db_name;
     private HttpClient http_client;
-    
+
     /**
-     * CouchDbClient constructor.
-     * @param uri The CouchDB server uri.
-     * @param db The name of specified db.
+     * @param host_addr address of the couchDB host
+     * @param db_name name of the dadabase
      */
     public CouchDbClient(String host_addr, String db_name) {
         this.host_addr = host_addr;
@@ -33,7 +32,6 @@ public class CouchDbClient {
 
     /**
      * Insert a key-value pair.
-     * @param key The key ASCII string. If this value is null, 
      * @param value The value ASCII string in JSON format.
      * @return The automatically-generated keyid in ASCII string.
      */
@@ -83,9 +81,9 @@ public class CouchDbClient {
     }
 
     /**
-     * Lookup a key-value pair.
+     * Lookup a specific document by id.
      * @param key The key ASCII string.
-     * @return The value ASCII string.
+     * @return The string representation of a document.
      */
     public String lookup(String key) {
         // GET /{db}/{docid}
@@ -105,6 +103,11 @@ public class CouchDbClient {
         }
     }
 
+    /**
+     * Lookup documents by applying a filter.
+     * @param filter The JSONObject.
+     * @return The JSON representation of documents.
+     */
     public JSONObject lookupWithFields(JSONObject filter) {
         // POST /{db}/_find
         String uri_str = this.host_addr + "/" + this.db_name + "/_find";
