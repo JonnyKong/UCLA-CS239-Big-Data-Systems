@@ -13,7 +13,7 @@ public class DocRetrieverTopology {
         builder.setSpout("doc-retriever", new DocRetrieverSpout());
 
         CouchLookupBolt couchLookupBolt =
-                new CouchLookupBolt("http://127.0.0.1:5984", "baseball", new SimpleQueryFilterCreator(), new CouchLookupMapper());
+                new CouchLookupBolt("http://127.0.0.1:5984", "baseball", new SimpleQueryFilterCreator(), new CouchLookupMapper("_id", "Content"));
         builder.setBolt("couch-retriever", couchLookupBolt).shuffleGrouping("doc-retriever");
 
         Config conf = new Config();

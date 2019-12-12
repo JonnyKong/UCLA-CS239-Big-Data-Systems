@@ -74,7 +74,7 @@ public class CouchDbClient {
                 .build();
             HttpResponse<String> response = 
                 this.http_client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            System.out.println("response: " + response.body());
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -44,10 +44,10 @@ public class CouchLookupBolt implements IRichBolt {
         System.out.println("Size of tuple: " + tuple.size() + ", content: " + tuple.toString());
         if(tuple.size() == 1) {
             String doc = couchDbClient.lookup(tuple.getString(0));
-            Values values = new Values();
-            values.add(doc);
-            this.collector.ack(tuple);
+//            Values values = new Values();
+//            values.add(doc);
             System.out.println(doc);
+            this.collector.ack(tuple);
             return;
         }
 
@@ -62,7 +62,7 @@ public class CouchLookupBolt implements IRichBolt {
             List<Values> valuesList = new ArrayList<>();
             for(int i = 0; i < docs.length(); i++) {
                 JSONObject jsonObject = docs.getJSONObject(i);
-                System.out.println("***" + jsonObject.toString());
+                System.out.println(jsonObject.toString());
                 valuesList.add(couchLookupMapper.toTuple(tuple, jsonObject));
             }
 
